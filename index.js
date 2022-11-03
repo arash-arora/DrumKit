@@ -1,14 +1,5 @@
-for(var i = 0; i < document.querySelectorAll(".drum").length; i++)
-{
-  document.querySelectorAll(".drum")[i].addEventListener("click", function() {
-
-    var buttonInnerHTML = this.innerHTML;
-
-    // if (buttonInnerHTML === "w") {
-    //   var audio = new Audio("sounds/crash.mp3");
-    //   audio.play();
-    // }
-    switch(buttonInnerHTML) {
+function check(v) {
+  switch(v) {
       case "w":
         var crash = new Audio("sounds/crash.mp3");
         crash.play();
@@ -44,6 +35,23 @@ for(var i = 0; i < document.querySelectorAll(".drum").length; i++)
         tom4.play();
         break;
     }
+}
+for(var i = 0; i < document.querySelectorAll(".drum").length; i++)
+{
+  document.querySelectorAll(".drum")[i].addEventListener("click", function() {
+
+    var buttonInnerHTML = this.innerHTML;
+
+    // if (buttonInnerHTML === "w") {
+    //   var audio = new Audio("sounds/crash.mp3");
+    //   audio.play();
+    // }
+    check(buttonInnerHTML);
 
   });
 }
+
+document.addEventListener("keypress", function(e) {
+  console.log(e.key);
+  check(e.key);
+});
