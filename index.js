@@ -47,6 +47,7 @@ for(var i = 0; i < document.querySelectorAll(".drum").length; i++)
     //   audio.play();
     // }
     check(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
 
   });
 }
@@ -54,4 +55,15 @@ for(var i = 0; i < document.querySelectorAll(".drum").length; i++)
 document.addEventListener("keypress", function(e) {
   console.log(e.key);
   check(e.key);
+  buttonAnimation(e.key);
 });
+
+function buttonAnimation(key){
+  var activeButton = document.querySelector("."+key);
+  activeButton.classList.add("pressed");
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+  }, 100);
+  
+  
+}
